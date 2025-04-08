@@ -1,0 +1,1071 @@
+#bodyInicio{
+    background-image: url("assets/back8.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#cabezaInicio{
+    
+    width: 100vw;
+    height: 100px;
+    display:flex ;
+}
+#avatar{
+    border-radius: 50%;
+    cursor: pointer;
+}
+#cuadroDialogo{
+    position: absolute;
+    width: auto;
+    height: auto;
+    background-color: rgb(255, 198, 123);
+    border-radius: 0px 20px 20px 20px;
+    left: 4%;
+    bottom: 85%;
+    display: inline-block; /* Para que el contenedor se ajuste al texto */
+    overflow: hidden;
+}
+
+#dialogo{
+    font-family: 'Courier New', Courier, monospace; 
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#cuerpoInicio{
+    position:absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+
+    display: flex;
+}
+
+.carta{
+    border: 3px solid rgba(23, 82, 100, 0.199);
+    width: 300px;
+    height: 400px;
+    margin: 40px;
+    background-color: rgba(88, 54, 34, 0.568);
+    border-radius: 10px 40PX 40PX 10PX;
+    color: rgb(255, 241, 39);
+    font-size: 1.5em;
+    text-align: center;
+    box-shadow: 0px 0px 30px rgba(172, 63, 20, 0.849);
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    overflow: hidden;
+    text-shadow: 5px 9px 3px rgba(0, 0, 0, 0.5);
+    user-select: none; /* Evitar que se puedan seleccionar */
+
+}
+
+.carta:hover{
+    border: 3px solid rgba(55, 175, 211, 0.527);
+    background-color: rgba(30, 123, 151, 0.199);
+    color: rgb(173, 250, 246);
+    box-shadow: 5px 5px 7px rgba(146, 247, 247, 0.678);
+    transition: all .3s ease-in-out;
+    transform: rotate(-9deg) scale(1.2); /* Rotar y escalar al pasar el mouse */
+
+    z-index: 1; /* Asegúrate de que la carta esté por encima de otros elementos */
+}
+
+.wave-container {
+    position: relative; /* Necesario si quieres posicionar otros elementos encima */
+    width: 100%;
+    height: 100%;
+    top: 22%;
+    overflow: hidden; /* Para que la onda no se salga del contenedor */
+  }
+  .wave {
+    display: block; /* Asegura que el SVG se comporte como un bloque */
+    width: 350%; /* Hazlo más ancho para que al moverse se vea continuo */
+    animation: wave-motion 5s linear infinite alternate; /* Ajusta la duración y otras propiedades */
+  }
+  .wave2 {
+    position: absolute;
+    bottom: 45%;
+    width: 350%; /* Hazlo más ancho para que al moverse se vea continuo */
+    animation: wave-motion 5s linear infinite alternate-reverse ; /* Ajusta la duración y otras propiedades */
+  }
+  
+  @keyframes wave-motion {
+    0% {
+      transform: translateX(-34%);
+    }
+    100% {
+      transform: translateX(-66%); /* Desplaza el SVG a la izquierda por la mitad de su ancho */
+    }
+  }
+
+
+
+
+
+
+
+
+
+  .burbujas-contenedor {
+    position: absolute; /* O 'absolute' si está dentro de otro contenedor relativo */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* O la altura que necesites */
+    overflow: hidden; /* Escondemos las burbujas que salgan del contenedor */
+    z-index: -1;
+}
+
+.burbuja {
+    position: absolute;
+    bottom: -40px; /* Empiezan justo debajo de la pantalla */
+    width: 40px; /* Tamaño base */
+    height: 20px; /* Tamaño base */
+    background-color: rgba(255, 255, 255, 0.2); /* Blanco semi-transparente */
+    border-radius: 50%; /* Para hacerlas circulares */
+    opacity: 0.7;
+
+    /* Animación base */
+    animation-name: subir;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* Definición de la animación */
+@keyframes subir {
+    0% {
+        transform: translateY(0) translateX(0); /* Posición inicial */
+        opacity: 1;
+    }
+    50% {
+         /* Un pequeño vaivén horizontal a mitad de camino */
+        transform: translateX(15px);
+    }
+    100% {
+        /* Mueve la burbuja muy arriba, fuera de la vista */
+        transform: translateY(-19vh) translateX(0);
+        opacity: 0; /* Se desvanece al llegar arriba */
+    }
+}
+
+/* Variaciones para cada burbuja usando nth-child */
+/* Puedes añadir más variaciones si agregas más divs .burbuja en el HTML */
+
+.burbuja:nth-child(1) {
+    left: 10%; /* Posición horizontal */
+    width: 25px; height: 25px; /* Tamaño */
+    animation-duration: 7s; /* Velocidad */
+    animation-delay: 0s; /* Retraso antes de empezar */
+    background-color: rgba(173, 216, 230, 0.3); /* Azul claro */
+}
+
+.burbuja:nth-child(2) {
+    left: 25%;
+    width: 15px; height: 15px;
+    animation-duration: 8s;
+    animation-delay: 1s;
+}
+
+.burbuja:nth-child(3) {
+    left: 40%;
+    width: 30px; height: 30px;
+    animation-duration: 5s;
+    animation-delay: 2.5s;
+     background-color: rgba(224, 255, 255, 0.3); /* Cian muy claro */
+}
+
+.burbuja:nth-child(4) {
+    left: 55%;
+    width: 18px; height: 18px;
+    animation-duration: 7s;
+    animation-delay: 0.5s;
+}
+
+.burbuja:nth-child(5) {
+    left: 70%;
+    width: 22px; height: 22px;
+    animation-duration: 9s;
+    animation-delay: 3s;
+     background-color: rgba(173, 216, 230, 0.3);
+}
+
+.burbuja:nth-child(6) {
+    left: 85%;
+    width: 12px; height: 12px;
+    animation-duration: 6s;
+    animation-delay: 1.5s;
+}
+
+.burbuja:nth-child(7) {
+    left: 5%;
+    width: 28px; height: 28px;
+    animation-duration: 11s;
+    animation-delay: 4s;
+     background-color: rgba(224, 255, 255, 0.3);
+}
+
+.burbuja:nth-child(8) {
+    left: 33%;
+    width: 16px; height: 16px;
+    animation-duration: 7.5s;
+    animation-delay: 2s;
+}
+
+.burbuja:nth-child(9) {
+    left: 62%;
+    width: 24px; height: 24px;
+    animation-duration: 10.5s;
+    animation-delay: 0.8s;
+     background-color: rgba(173, 216, 230, 0.3);
+}
+
+.burbuja:nth-child(10) {
+    left: 78%;
+    width: 19px; height: 19px;
+    animation-duration: 8.5s;
+    animation-delay: 3.5s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contenedor-luci {
+    position: absolute; /* Para que las luciérnagas se posicionen relativamente a este contenedor */
+    width: 100%;
+    height: 100%;
+}
+
+.luciernaga {
+    position: absolute; /* Para poder posicionar las luciérnagas donde queramos */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrar inicialmente (puedes ajustar esto) */
+    font-size: 2.0em; /* Tamaño del punto */
+    color: transparent; /* El color del texto no importa, solo el shadow */
+    animation: parpadear 2s infinite alternate; /* Animación de parpadeo */
+    pointer-events: none; /* Evitar que las luciérnagas interfieran con los clics */
+    user-select: none; /* Evitar que se puedan seleccionar */
+    z-index: -1;
+}
+
+
+.luciernaga h1 {
+    margin: 0;
+    text-shadow: 0 0 2px #ffdfa4, 0 0 22px #c9690f, 0 0 22px #e47a17; /* Efecto de brillo */
+}
+
+/* Animación de parpadeo */
+@keyframes parpadear {
+    from {
+        opacity: 0.2; /* La luciérnaga comienza ligeramente visible */
+    }
+    to {
+        opacity: 1; /* La luciérnaga alcanza su máximo brillo */
+    }
+}
+
+/* Podemos agregar estilos específicos para cada luciérnaga para variar la posición y el tiempo de parpadeo */
+.luciernaga:nth-child(1) {
+    top: 19%;
+    left: 2%;
+    animation-delay: 0.2s;
+}
+
+.luciernaga:nth-child(2) {
+    top: 50%;
+    left: 80%;
+    animation-delay: 1.2s;
+}
+
+.luciernaga:nth-child(3) {
+    top: 15%;
+    left: 60%;
+    animation-delay: 0.8s;
+}
+
+.luciernaga:nth-child(4) {
+    top: 0%;
+    left: 40%;
+    animation-delay: 0.2s;
+}
+.luciernaga:nth-child(5) {
+    top: 35%;
+    left: 40%;
+    animation-delay: 1.2s;
+}
+.luciernaga:nth-child(6) {
+    top: 75%;
+    left: 20%;
+    animation-delay: 0.9s;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Inicio de pagina de Contacto----------------------------------------
+--------------------------------------------------------------------
+-------------------------------------------------------------------- */
+#bodyContacto{
+    background-image: url("assets/back10.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#contacto{
+    position:absolute;
+    background-color: rgba(25, 40, 41, 0.733);
+    backdrop-filter: blur(4px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 69%;
+    height: 83%;
+    z-index: 2;
+    top: 50vh;
+    border-radius: 30px;
+    border: 5px solid rgba(116, 109, 216, 0.466);
+}
+
+#contactoEmail{
+    display: flex;
+    margin-bottom: 30px;
+
+}
+
+
+.containerContacto{
+
+    width: 329px;
+    height: 320px;
+    position: relative;
+    left: 0%;
+    top: 5vh;
+    z-index: 3;
+    margin: auto;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 20px;
+
+    transition-duration: 0.3s;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.836) inset, -3px -3px 15px rgb(0, 0, 0) inset, -3px -3px 1px rgba(44, 68, 70, 0.521), 3px 3px 1px rgba(54, 78, 80, 0.521) ;
+}
+
+.containerContacto:hover{
+    background-color: rgb(9 62 89);
+    transition: all 0.3s ease-in-out;
+    border-radius: 20px;
+    box-shadow: -6px -9px 22px rgb(56, 56, 65)  inset, 9px 10px 12px rgb(0, 0, 0)  ;
+    transform:scale(1.1) ;
+
+
+}
+
+#txtContacto{
+
+    color: rgb(255, 255, 255);
+    font-size: 2em;
+    overflow-wrap: normal;
+    text-align: center;
+}
+
+
+#iconoContacto{
+    position: relative;
+    height: 30%;
+    width: 30%;
+    left: 50%;
+    transform: translate(-50%);
+    opacity: 0.7;
+
+}
+
+
+
+
+.buttonInicio {
+    background-color: #29413d00;
+    border-radius: 12px;
+    box-shadow: rgba(10, 11, 19, 0.2) 0 2px 4px, rgb(0, 0, 0) 0 7px 13px -3px, #000000 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: "JetBrains Mono", monospace;
+    height: 66px;
+    padding-left: 24px;
+    padding-right: 24px;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    text-align: center;
+    transition: box-shadow 0.15s, transform 0.15s;
+    user-select: none;
+    will-change: box-shadow, transform;
+    font-size: 32px;
+  }
+  
+
+  
+  .buttonInicio:hover {
+    box-shadow: rgba(28, 52, 194, 0.3) 0 4px 8px, rgba(22, 37, 126, 0.507) 0 7px 13px -3px, #3131c4 0 -3px 0 inset;
+
+  }
+  
+  .buttonInicio:active {
+    box-shadow: #1b1b24 0 3px 7px inset;
+
+  }
+
+
+
+
+
+
+
+
+
+
+  /* Inicio de pagina de Certificados----------------------------------------
+--------------------------------------------------------------------
+-------------------------------------------------------------------- */
+#bodyCertificados{
+    background-image: url("assets/back1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+
+
+#titulo{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#btncer{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 25%;
+}
+
+
+
+.comic-button {
+    display: inline-block;
+    padding: 12px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #ff5252;
+    border: 2px solid #000;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px #000;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .comic-button:hover {
+    background-color: transparent;
+    color: #ff5252;
+    border: 2px solid #ff5252;
+    box-shadow: 5px 5px 0px #ff5252;
+  }
+  
+  .comic-button:active {
+    background-color: #fc9014;
+    box-shadow: none;
+    transform: translateY(4px);
+  }
+  
+
+
+
+
+
+.loader {
+    position: relative;
+    top: 4vw;
+  }
+  
+  .loader span {
+    position: absolute;
+    color: #000000;
+    transform: translate(-50%, -50%);
+    font-size: 8em;
+    letter-spacing: 9px;
+    user-select: none;
+  }
+  
+  .loader span:nth-child(1) {
+    color: transparent;
+    -webkit-text-stroke: 4.3px rgb(0, 0, 0);
+  }
+  
+  .loader span:nth-child(2) {
+    color: rgb(255, 43, 72);
+    -webkit-text-stroke: 5px rgba(255, 158, 12, 0.541);
+    animation: am 8s ease-in-out infinite;
+  }
+  
+  @keyframes am {
+    0%, 100% {
+      clip-path: polygon(0% 15%, 25% 14%, 12% 10%, 
+       14% 5%, 70% 11%, 84% 19%, 100% 12%, 100% 100%, 0% 100%);
+    }
+  
+    50% {
+      clip-path: polygon(1% 90%, 16% 95%, 94% 96%, 
+       91% 92%, 97% 90%, 94% 95%, 100% 76%, 100% 100%, 0% 100%);
+    }
+  }
+
+
+
+.certificados{
+
+    width: 77%;
+    height: 45%;
+    border-radius: 4px;
+    gap: 30px;
+
+
+
+    display: flex;
+    padding-bottom: 2em;
+
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 60%;
+    overflow: hidden;
+}
+
+.containers{
+
+    height: 100%;
+    border: 9px solid rgba(82, 10, 10, 0.534);
+    border-radius: 12px;
+    margin: auto;
+    overflow: hidden;
+    width: 120px;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    user-select: none;
+
+}
+.imgCer{
+    height: 100%;
+  
+}
+
+.containers:hover{
+    width: 70%;
+    height: 100%;
+    transition: 0.2s ease-in;
+    flex: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Inicio de pagina de Proyectos----------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+------------------------------------------------------------------------- */
+
+
+#bodyProyectos{
+    background-image: url("assets/back4.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-x: hidden;
+    overflow-y: hidden; /* Prevent scrolling on the page */
+    height: 100vh; /* Ensure it takes the full viewport height */
+    margin: 0;
+}
+
+
+#btnI_P{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 15%;
+    z-index: 2;
+    border: 4px solid black;
+    border-radius: 20px;
+
+}
+#btnI_P button{
+    background-color: transparent;
+    color: #fff3e8;
+
+    text-align: center;
+    font-size: 2em;
+    width: 120px;
+    padding: 10px;
+    transition: all 0.4s ease-in-out;
+    border: none;
+
+    border-radius: 29px;
+
+}
+
+#btnI_P button:hover{
+    background-color: #ffe5ca;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border-radius: 10px;
+    transform: scale(1.1);
+    color: #000000;
+}
+
+
+#tituloP{
+    position:absolute;
+    font-size: 3.4em;
+
+    color: #fff2e3 ;
+    text-align: center;
+    text-shadow:#000000 0px 0px 15px;
+    left: 50%;
+    top: -9%;
+    transform: translate(-50%);
+}
+
+
+
+#contenedorPrincipal {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 columns */
+    gap: 90px; /* Reduce gap between grid items */
+    height: 450px;
+    position: absolute;
+    width: 88%;
+    top: 38%;
+
+
+
+
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-bottom: 88px;
+
+    padding-top: 1%;
+    overflow:scroll; /* Enable scrolling if content overflows */
+
+}
+
+#contenedorPrincipal::-webkit-scrollbar {
+    display: none; /* Hide the scrollbar for a cleaner look */
+}
+
+.card {
+    margin:0 auto;
+
+    user-select: none;
+    position: relative;
+    top: 10%;
+
+
+
+
+
+    height: 190px; /* Square dimensions */
+    width: 498px;
+    border-radius: 62px; /* Rounded corners */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out; /* Smooth transition for scaling and border-radius */
+
+
+
+}
+
+.card:hover {
+
+    transform: scale(1.1); /* Slightly enlarge the card on hover with more noticeable scaling */
+    border-radius: 30px;
+    transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out; /* Smooth transition for scaling and border-radius */
+}
+#proyecto1{
+    background-image: url("assets/b1.jpg");
+}
+#proyecto2{
+    background-color: #ff8e3c;
+}
+#proyecto3{
+    background-color: #ffea00;
+}
+#proyecto4{
+    background-color: #00ffea;
+}
+#proyecto5{
+    background-color: #00ff3c;
+}
+#proyecto6{
+    background-color: #3c00ff;
+}
+#proyecto7{
+    background-color: #ff3c00;
+}
+#proyecto8{
+    background-color: #ff3c8e;
+}
+#proyecto9{
+    background-color: #3c8eff;
+}
+
+#proyecto1, #proyecto2, #proyecto3, #proyecto4, #proyecto5, #proyecto6, #proyecto7, #proyecto8, #proyecto9 {
+    background-size: cover; /* Ensure the background image covers the entire card */
+    background-position: center; /* Center the image within the card */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+
+}
+
+
+
+.info{
+    width: 90%;
+    height: 20%;
+    background-color: rgba(44, 44, 44, 0.664);
+    backdrop-filter: blur(5px);
+    
+    font-size: 39px;
+    color: #ffffff;
+    text-shadow: 4px 2px 2px rgba(0, 0, 0, 0.596);
+    
+    animation-name: cardInfo;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    box-shadow: -1px -1px 90px rgba(7, 7, 7, 0.514);
+
+    transition: all cubic-bezier(0.88, -1.55, 0.265, 0.55) 0.5s;
+
+
+}
+
+
+@keyframes cardInfo {
+    0% {
+        transform:scale(1.01) ;
+
+
+    }
+    50% {
+        transform: scale(1.06) ;
+
+        box-shadow: -14px -11px 22px rgba(0, 0, 0, 0.281);
+
+    }
+    100% {
+        transform:scale(1.01) ;
+
+    }
+}
+
+.card:hover .info{
+    position: relative;
+    width: 92%;
+    height: 53%;
+    backdrop-filter: blur(22px);
+    background-color: rgba(0, 0, 0, 0.336);
+    border-radius: 50px;
+    border: 2px solid black;
+    top: 0%;
+    left: 0%;
+
+    box-shadow: -12px -12px 22px rgba(0, 0, 0, 0.637);
+
+
+
+
+    transition: all 0.3s ease-in-out;
+
+
+}
+
+
+
+
+
+
+#contenedorB{
+    height: 12%;
+    width: 100%;
+    
+    position: fixed;
+    top: 80%;
+    left: -28%;
+    rotate: -340deg;
+
+    
+    overflow: hidden;
+    user-select: none;
+
+
+}
+
+#contenedorA{
+    height: 12%;
+    width: 100%;
+    
+    position: fixed;
+    top: 80%;
+    left: 27%;
+    rotate: 340deg;
+
+    
+    overflow: hidden;
+    user-select: none;
+
+}
+
+
+#trianguloI{
+    width: 73%;
+    height: 40%;
+    
+    
+    position: absolute;
+    top: 60%;
+    left: -40%;
+
+    clip-path: polygon(50% 36%, 100% 100%, 50% 100%);
+
+    backdrop-filter: blur(15px);
+    background-color: rgba(51, 112, 148, 0.295);
+    
+    transition: all 0.3s ease-in-out;
+}
+
+#trianguloI:hover, #trianguloD:hover{
+    backdrop-filter: blur(30px);
+    background-color: rgba(13, 96, 145, 0.356);
+
+}
+
+
+
+#trianguloD{
+    position: absolute;
+    width: 73%;
+    height: 40%;
+    top: 61.5%;
+    left: 64%;
+    clip-path: polygon(50% 36%, 0% 100%, 50% 100%);
+    background-color: rgba(51, 112, 148, 0.295);
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+#txtI{
+    position: absolute;
+    bottom: 6%;
+    font-size: clamp(1.5rem, 2vw + 1rem, 3rem);
+    color: #fff2e3;
+    left: 57%;
+    cursor:context-menu;
+}
+#txtD{
+    position: absolute;
+    bottom: 9%;
+    font-size: clamp(1.5rem, 2vw + 1rem, 3rem);
+    color: #fff2e3;
+    left: 32%;
+    cursor:context-menu;
+}
+
+.trianguloH:hover{
+    backdrop-filter: blur(0px);
+}
+
+
+
+
+
+.imgAbajo {
+    margin-top: 12px;
+    top: -10%;
+    margin-left: 180px;
+    position: relative;
+    height: 100%;
+    width: auto;
+    animation-name: moveX;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+
+    user-select: none;
+}
+
+@keyframes moveX {
+    0% {
+        transform: translateX(-100vw);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+
+#popupProyectos{
+    position: absolute;
+    width: 70%;
+    height: 100%;
+    backdrop-filter: blur(99px);
+    background-color: transparent;
+    user-select: none;
+
+
+}
+
+#cuerpoPopup{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 38px;
+
+
+    width: 100%;
+    height: 92%;
+}
+
+#tituloPopup{
+    position: relative;
+    top: 20%;
+
+    font-size:3.5em;
+    user-select: none;
+    justify-self: center;
+    color: #fff3e8;
+
+
+}
+
+
+#container{
+    grid-row: span 2 / span 2;
+    justify-self: center;
+    width: 720px;
+    height: 460px;
+    overflow: hidden;
+
+}
+
+.imgPop{
+    object-fit: contain;
+    width: 100%;
+
+}
+
+
+#descripcionProyecto{
+    width: 80%;
+    grid-row-start: 4;
+    justify-self: center;
+    text-align: center;
+    white-space: pre-line;
+
+
+}
+
+#botones{
+    grid-row-start: 5;
+    justify-self: center;
+}
+#bI{
+    margin-right: 200px;
+    
+}    
+#bI:focus{
+    outline: none;
+}
+
+#bI, #bD{
+    width: 193px;
+    height: 80px;
+    background-color: transparent;
+    border: 5px solid #050505;
+    border-radius: 20px;
+    font-size: 2em;
+    color: #ffd9b9;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+#bI:hover, #bD:hover{
+    background-color: #050505;
+    color: #ffd9b9;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 0px 30px rgba(48, 11, 40, 0.849);
+    transform: scale(1.2);
+}
